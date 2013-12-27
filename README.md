@@ -124,7 +124,7 @@ $(function(){
 });
 ```
 
-__clickableTables__
+__tmTableLinks__
 
 * Link whole table row or table data
 * If there is just one link inside whole tr, set that link on the whole tr
@@ -135,7 +135,7 @@ __clickableTables__
 * Do not forget to modify your CSS styles
 
 ```javascript
-$.fn.tableLinks = function(opt = {}){
+$.fn.tmTableLinks = function(opt = {}){
   var that = this,
       tableBody = $(this).find("tbody").length ? true : false,
       query = tableBody ? "tbody tr" : "tr:not(:first-child)",
@@ -185,7 +185,7 @@ $.fn.tableLinks = function(opt = {}){
 Usage:
 ```javascript
 $(function(){
-  $("table.table").tableLinks({
+  $("table.table").tmTableLinks({
     rowClass: "linkable"
   });
 });
