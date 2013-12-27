@@ -1,7 +1,7 @@
 /**
 * Calculating max height on multiple elements and add biggest height to all element
 */
-$.fn.ngMaxHeight = function(maxViewport, currentRes){
+$.fn.tmMaxHeight = function(maxViewport, currentRes){
     if ( currentRes < maxViewport ){
         $(this).css('height', 'auto');
         return true;
@@ -16,13 +16,13 @@ $.fn.ngMaxHeight = function(maxViewport, currentRes){
 };
 
 /**
-* Calculating max height on multiple elements and add biggest height to all element including on resize window. Calculating max height on multiple elements and add biggest height to all element including on resize window. In order to work, default ngMaxHeight function must be copied
+* Calculating max height on multiple elements and add biggest height to all element including on resize window. Calculating max height on multiple elements and add biggest height to all element including on resize window. In order to work, default tmMaxHeight function must be copied
 */
-$.fn.ngMaxHeightResize = function(){
+$.fn.tmMaxHeightResize = function(){
   var that = this;
-  this.ngMaxHeight();
+  this.tmMaxHeight();
   $(window).resize(function(){
-    that.ngMaxHeight();
+    that.tmMaxHeight();
   });
 };
 
@@ -53,9 +53,9 @@ $.fn.linkify = function() {
 * If no position is specified it will return first child only.
 * If any position beside first or last is passed it will be applied to all passed elements.
 */
-$.fn.ngAddChildClass = function(position, className){
+$.fn.tmAddChildClass = function(position, className){
   position = position || 'first';
-  className = className || 'ngClass';
+  className = className || 'tmClass';
   if( position == 'first' ){
     this.first().addClass( position+'-child' );
   }else if( position == 'last' ){
@@ -66,8 +66,8 @@ $.fn.ngAddChildClass = function(position, className){
 };
 
 $(function(){
-  $('ul li').ngMaxHeightResize();
-  $('ul li').ngAddChildClass();
+  $('ul li').tmMaxHeightResize();
+  $('ul li').tmAddChildClass();
   $('ul li').linkify();
 });
 
@@ -79,7 +79,7 @@ $(function(){
 *  - If td has more than one link, do nothing ( keep default behaviour )
 */
 
-$.fn.tableLinks = function(opt = {}){
+$.fn.tmTableLinks = function(opt = {}){
   var that = this,
       tableBody = $(this).find("tbody").length ? true : false,
       query = tableBody ? "tbody tr" : "tr:not(:first-child)",

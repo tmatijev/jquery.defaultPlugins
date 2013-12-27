@@ -1,16 +1,16 @@
-ngDefaultPlugins
+defaultPlugins
 ==========================
 
 Set of the most common used jQuery functionalities.
 
 ## List of functions ##
 
-__ngMaxHeight__
+__tmMaxHeight__
 
 * Calculating max height on multiple elements and add biggest height to all element
 
 ```javascript
-$.fn.ngMaxHeight = function(){
+$.fn.tmMaxHeight = function(){
   var maxHeight = 0;
   this.each(function(){
     // Set height to auto because of resize effect
@@ -24,17 +24,17 @@ $.fn.ngMaxHeight = function(){
 Usage:
 ```javascript
 $(function(){
-  $('ul li').ngMaxHeight();
+  $('ul li').tmMaxHeight();
 });
 ```
 
-__ngMaxHeightResize__
+__tmMaxHeightResize__
 
-* Calculating max height on multiple elements and add biggest height to all element including on resize window. In order to work, default ngMaxHeight function must be copied
+* Calculating max height on multiple elements and add biggest height to all element including on resize window. In order to work, default tmMaxHeight function must be copied
 
 ```javascript
-// Default ngMaxHeight
-$.fn.ngMaxHeight = function(){
+// Default tmMaxHeight
+$.fn.tmMaxHeight = function(){
   var maxHeight = 0;
   this.each(function(){
     // Set height to auto because of resize effect
@@ -43,12 +43,12 @@ $.fn.ngMaxHeight = function(){
   });
   this.css( 'height', (parseInt(maxHeight) + 'px') );
 };
-// Resize ngMaxHeightResize
-$.fn.ngMaxHeightResize = function(){
+// Resize tmMaxHeightResize
+$.fn.tmMaxHeightResize = function(){
   var that = this;
-  this.ngMaxHeight();
+  this.tmMaxHeight();
   $(window).resize(function(){
-    that.ngMaxHeight();
+    that.tmMaxHeight();
   });
 };
 ```
@@ -56,7 +56,7 @@ $.fn.ngMaxHeightResize = function(){
 Usage:
 ```javascript
 $(function(){
-  $('ul li').ngMaxHeightResize();
+  $('ul li').tmMaxHeightResize();
 });
 ```
 
@@ -92,16 +92,16 @@ $(function(){
 });
 ```
 
-__ngAddChildClass__
+__tmAddChildClass__
 
 * Adding classes to list of elements. Best usage is for first/last child in the list of elements.
 * If no position is specified it will return first child only.
 * If any position beside first or last is passed it will be applied to all passed elements.
 
 ```javascript
-$.fn.ngAddChildClass = function(position, className){
+$.fn.tmAddChildClass = function(position, className){
   position = position || 'first';
-  className = className || 'ngClass'
+  className = className || 'tmClass'
   if( position == 'first' ){
     this.first().addClass( position+'-child' );
   }else if( position == 'last' ){
@@ -116,11 +116,11 @@ Usage:
 ```javascript
 $(function(){
   // Default
-  $('ul li').ngAddChildClass();
+  $('ul li').tmAddChildClass();
   // First child
-  $('ul li').ngAddChildClass('first');
+  $('ul li').tmAddChildClass('first');
   // Last child
-  $('ul li').ngAddChildClass('last');
+  $('ul li').tmAddChildClass('last');
 });
 ```
 
