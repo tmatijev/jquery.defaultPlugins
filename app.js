@@ -79,7 +79,8 @@ $(function(){
 *  - If td has more than one link, do nothing ( keep default behaviour )
 */
 
-$.fn.tmTableLinks = function(opt = {}){
+$.fn.tmTableLinks = function(opt){
+  opt = opt || {};
   var that = this,
       tableBody = $(this).find("tbody").length ? true : false,
       query = tableBody ? "tbody tr" : "tr:not(:first-child)",
